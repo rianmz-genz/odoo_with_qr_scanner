@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="petty_cash_report">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+
+                <style type="text/css">
+                    table{
+                        border-collapse: collapse;
+                        width: 100%;
+                    }
+
+                    table, th, td {
+                        border: 3px solid;
+                        }
+                    
+                    th{
+                        padding: 10px;
+                    }
+
+                    td{
+                        padding: 5px;
+                    }
+                    
+
+                
+                </style>
+                <t class="page">
+                    <div class="oe_structure"/>
+                    <center>
+                        <b>
+                            <h2>BUKU KAS HARIAN</h2>
+                            <h2>PT. BREEZE LABS</h2>
+                        </b>
+                    </center>
+                    <t t-if="start_date and end_date">
+                        <center>
+                            <b>
+                                <span t-esc="start_date"/>
+                                ~
+                                <span t-esc="end_date"/>
+                            </b>
+                        </center>
+                    </t>
+                        <br/>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tanggal Transaksi</th>
+                                <th>Akun Jurnal</th>
+                                <th>Debet (Rp.)</th>
+                                <th>Kredit (Rp.)</th>
+                                <th>Saldo (Rp.)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="form" t-as="line">
+                                <td>
+                                    <span t-esc="line['tanggal_transaksi']" t-options='{"widget": "date"}'/>
+                                </td>
+                                <td>
+                                    <span t-foreach="zip(line['journal_id']['code'], line['journal_id']['name'])" t-as="account">
+                                        <div>
+                                            <span t-esc="account[0]"/> - <span t-esc="account[1]"/>
+                                        </div>
+                                    </span>
+                                </td>
+                                <td>
+                                    <span t-foreach="line['debit']" t-as="debit">
+                                        <div style="text-align: right;">
+                                            <span t-esc="debit"/>
+                                        </div>
+                                    </span>
+                                </td>
+                                <td>
+                                    <span t-foreach="line['kredit']" t-as="kredit">
+                                        <div style=" text-align: right;">
+                                            <span t-esc="kredit"/>
+                                        </div>
+                                    </span>
+                                </td>
+                                <td>
+                                    <span t-foreach="line['balance']" t-as="balance">
+                                        <div style=" text-align: right;">
+                                            <span t-esc="balance"/>
+                                        </div>
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2">Total</td>
+                                <td>
+                                    <div style="text-align: right;">
+                                        <span t-esc="line['total'][0]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="text-align: right;">
+                                        <span t-esc="line['total'][1]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="text-align: right;">
+                                        <span t-esc="line['total'][2]"/>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

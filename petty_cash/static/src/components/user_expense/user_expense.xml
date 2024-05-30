@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="owl.UserExpenseRenderer" owl="1">
+        <ol>
+            
+            <t t-foreach="userExpenseData" t-as="expense" t-key="expense.debit_sum">
+                <li>
+                    <span t-esc="expense.user_id"/>: Rp. <t t-esc="expense.debit_sum"/>
+                </li>
+            </t>
+        </ol>
+    </t>
+</templates>

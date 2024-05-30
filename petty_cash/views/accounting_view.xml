@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="accounting_view_tree" model="ir.ui.view">
+        <field name="name">petty_cash.accounting_view</field>
+        <field name="model">petty_cash.accounting</field>
+        <field name="arch" type="xml">
+            <tree>
+                <header>
+                    <button string="Replenishment" type="object" name="replenish_button" class="btn-secondary"/>
+                </header>
+
+                <field name="tanggal_transaksi" />
+                <field name="journal_id" />
+                <field name="user_id" />
+                <field name="debit_sum" string='Debit' widget="monetary"
+                    options="{'currency_field': 'currency_id'}" sum="Debit" />
+                <field name="kredit_sum" string="Kredit" widget="monetary"
+                    options="{'currency_field': 'currency_id'}" sum="Kredit" />
+                <field name="balance_sum" string="Balance" widget="monetary"
+                    options="{'currency_field': 'currency_id'}" sum="Balance" optional="hide" />
+
+            </tree>
+
+        </field>
+        
+        
+    </record>
+
+    <record id="accounting_view_form" model="ir.ui.view">
+        <field name="name">petty_cash.accounting_form</field>
+        <field name="model">petty_cash.accounting</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+
+                            <field name="journal_id" />
+
+                        </group>
+                        <group>
+
+                            <field name="tanggal_transaksi" />
+                            <field name="user_id" />
+
+
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="kas_line" string="Kas Line">
+                            <field name="kas_line_ids" widget="one2many_list">
+                                <tree editable="bottom">
+                                    <field name="desc" />
+                                    <field name="debit" />
+                                    <field name="kredit" />
+
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="dokumen_pendukung" string="Dokumen Pendukung">
+                            <group>
+                                <field name="upload_nota_transaksi_keterangan" />
+                                <field name="image_ids">
+                                    <tree editable="bottom">
+                                        <field name="image" widget="image" />
+
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="petty_cash_action" model="ir.actions.act_window">
+        <field name="name">Kas Kecil</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">petty_cash.accounting</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="accounting_view_tree" />
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Kas Kecil
+            </p>
+        </field>
+    </record>
+
+</odoo>

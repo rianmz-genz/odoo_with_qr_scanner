@@ -1,0 +1,16 @@
+<odoo>
+  <data>
+    <!-- Top menu item -->
+
+    <menuitem name="Kas Kecil" id="petty_cash.menu_root" />
+
+    <!-- actions -->
+
+    <menuitem name="Accounting" id="petty_cash.accounting" parent="petty_cash.menu_root" />
+    <menuitem name="Account Entry" id="petty_cash.account_entry" parent="petty_cash.accounting" action="petty_cash_action" sequence="1"/>
+    <menuitem name="Replenishment" id="petty_cash.replenishment" parent="petty_cash.accounting" action="action_petty_cash_replenishment" sequence="2" />
+
+    <menuitem name="Report" id="petty_cash.data" parent="petty_cash.menu_root" action="action_petty_cash_data" />
+    
+  </data>
+</odoo>
