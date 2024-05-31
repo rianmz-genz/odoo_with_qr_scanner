@@ -9,7 +9,7 @@ export class ChartRenderer extends Component {
     this.chartRef = useRef("chart");
     this.chartData = [];
 
-    var apiUrl = "103.127.137.215:3000/pettycash/list";
+    var apiUrl = "pettycash/list";
 
     onWillStart(async () => {
       await loadJS(
