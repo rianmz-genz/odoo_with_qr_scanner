@@ -8,7 +8,7 @@ export class TopExpenseRenderer extends Component {
     this.topExpenseRef = useRef("top-expense");
     this.topExpenseData = {};
 
-    var apiUrl = "103.127.137.215:3000/pettycash/list/top-expense";
+    var apiUrl = "pettycash/list/top-expense";
 
     onWillStart(async () => {
       try {
