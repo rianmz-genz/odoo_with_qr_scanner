@@ -7,7 +7,7 @@ export class UserExpenseRenderer extends Component {
     this.userExpenseRef = useRef("user-expense");
     this.userExpenseData = {};
 
-    var apiUrl = "http://localhost:3000/pettycash/list/top-user-expense";
+    var apiUrl = "103.127.137.215:3000/pettycash/list/top-user-expense";
 
     onWillStart(async () => {
       try {
