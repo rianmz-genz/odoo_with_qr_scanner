@@ -30,7 +30,7 @@
                     <center>
                         <b>
                             <h2>BUKU KAS HARIAN</h2>
-                            <h2>PT. BREEZE LABS</h2>
+                            <h2>BREEZELABS.ID</h2>
                         </b>
                     </center>
                     <t t-if="start_date and end_date">
@@ -50,7 +50,7 @@
                                 <th>Akun Jurnal</th>
                                 <th>Debet (Rp.)</th>
                                 <th>Kredit (Rp.)</th>
-                                <th>Saldo (Rp.)</th>
+                                <!-- <th>Saldo (Rp.)</th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -79,13 +79,13 @@
                                         </div>
                                     </span>
                                 </td>
-                                <td>
+                                <!-- <td>
                                     <span t-foreach="line['balance']" t-as="balance">
                                         <div style=" text-align: right;">
                                             <span t-esc="balance"/>
                                         </div>
                                     </span>
-                                </td>
+                                </td> -->
                             </tr>
 
                             <tr>
@@ -100,11 +100,11 @@
                                         <span t-esc="line['total'][1]"/>
                                     </div>
                                 </td>
-                                <td>
+                                <!-- <td>
                                     <div style="text-align: right;">
                                         <span t-esc="line['total'][2]"/>
                                     </div>
-                                </td>
+                                </td> -->
                             </tr>
                         </tbody>
                     </table>
