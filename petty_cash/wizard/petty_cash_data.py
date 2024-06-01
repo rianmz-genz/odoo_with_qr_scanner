@@ -37,12 +37,17 @@ class ReportPettyCashData(models.TransientModel):
                 }
 
             # Append values from kas_line_ids
+            first_balance = True
             for kas_line in line.kas_line_ids:
                 grouped_data[key]['journal_id']['code'].append(kas_line.petty_accounting_id.journal_id.code)
                 grouped_data[key]['journal_id']['name'].append(kas_line.petty_accounting_id.journal_id.name)
                 grouped_data[key]['debit'].append(kas_line.debit)
                 grouped_data[key]['kredit'].append(kas_line.kredit)
-                grouped_data[key]['balance'].append(kas_line.petty_accounting_id.balance)
+                if first_balance:
+                    grouped_data[key]['balance'].append(kas_line.petty_accounting_id.balance)
+                    first_balance = False
+                else:
+                    grouped_data[key]['balance'].append(0)
 
             # for index, (key, values) in enumerate(grouped_data.items()):
             #     if(index == len(grouped_data)-1):
