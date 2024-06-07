@@ -78,10 +78,12 @@ class PettyCashReplenishment(models.TransientModel):
                         'name': f"Petty Cash {self.date}",  # Use name or id for reference
                         'debit': self.amount,
                         'account_id': account_id.id,
+                        'analytic_account_id': False,
                     }), (0, 0, {
                         'name': f"Petty Cash {self.date}",  # Use name or id for reference
                         'credit': self.amount,
                         'account_id': journal_account_id.my_account_id.id,
+                        'analytic_account_id': False,
                     })],
                 }
             move = self.env['account.move'].sudo().create(move_vals)
