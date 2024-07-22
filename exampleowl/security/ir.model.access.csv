@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_exampleowl_exampleowl,exampleowl.exampleowl,model_exampleowl_exampleowl,base.group_user,1,1,1,1

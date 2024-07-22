@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="action_owl_qr_scanner" model="ir.actions.client">
+            <field name="name">QrScanner</field>
+            <field name="tag">owl.qr_scanner</field>
+        </record>
+        <menuitem name="Scanner" id="menu_owl_tutorial" sequence="10">
+            <menuitem name="QrScanner" id="menu_owl_qr_scanner" sequence="10" action="action_owl_qr_scanner"/>
+        </menuitem>
+    </data>
+</odoo>

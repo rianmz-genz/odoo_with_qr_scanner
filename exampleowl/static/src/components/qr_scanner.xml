@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="owl.QrScanner" owl="1">
+        <div class="container h-100 d-flex justify-content-center align-items-center flex-column">
+            <div id="qr-reader" t-ref="qrReader" style="width:500px"></div>
+            <div id="qr-reader-results" t-esc="state.result"></div>
+        </div>
+    </t>
+</templates>

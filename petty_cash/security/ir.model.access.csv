@@ -1,9 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_petty_cash_accounting,access.petty_cash.accounting,model_petty_cash_accounting,,1,1,1,1
-access_petty_cash_kas_line,access.petty_cash_kas_line,model_petty_cash_kas_line,,1,1,1,1
-access_petty_cash_image_upload,access.petty_cash_image_upload,model_petty_cash_image_upload,,1,1,1,1
-access_petty_cash_data,access.petty_cash_data,model_petty_cash_data,,1,1,1,1
-access_petty_cash_replenishment,access.petty_cash_replenishment,model_petty_cash_replenishment,,1,1,1,1
-
-
-
